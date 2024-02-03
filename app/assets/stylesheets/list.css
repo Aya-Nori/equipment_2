@@ -1,0 +1,43 @@
+* {
+  box-sizing: border-box;
+}
+
+.list-all {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+/* 各アイテムのスタイル */
+.list-nav {
+  margin: 0 5px; /* アイテム間のマージン */
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 10px; 
+  margin-bottom: 10px;
+  background-color: lightgray;
+}
+
+/* 各アイテム内のスタイル */
+.list-info {
+  margin: 5px;
+  text-decoration: none; /* アンダーラインをなくす */
+  color: black; /* テキスト色を黒に設定 */
+}
+
+.text-title {
+  text-align: center;
+  margin-top: 20px;
+  color: pink;
+  font-size: 24px;
+}
+
+.list-text-nav {
+  width: 100%;
+  display: block;
+}
+
+.list-text {
+  margin: 10px auto;
+  text-align: center;
+}

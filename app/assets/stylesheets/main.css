@@ -1,0 +1,46 @@
+* {
+  box-sizing: border-box;
+}
+
+.main_top {
+  padding: 2vh;
+  display: flex;
+}
+
+.main_nav {
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.rounded-button1 {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 30px; 
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+}
+
+
+.rounded-button1:hover {
+  background-color: red;
+}
+
+.rounded-button2 {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #00ff7b;
+  color: #fff;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+}
+
+.rounded-button2:hover {
+  background-color: red;
+}

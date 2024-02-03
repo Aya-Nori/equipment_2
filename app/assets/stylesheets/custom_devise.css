@@ -1,0 +1,68 @@
+.new_user .actions input[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  width: 40%;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.new_user .actions input[type="submit"]:hover {
+  background-color: red;
+}
+
+.new_user {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.new_user .field1 {
+  width: 48%;
+  box-sizing: border-box;
+  padding-bottom: 20px;
+}
+
+.new_user .field1 label,
+.new_user .field1 input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.new_user .field {
+  width: 100%;
+  box-sizing: border-box;
+  padding-bottom: 20px;
+}
+
+.new_user .field label,
+.new_user .field input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.new_user .actions {
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 0 20px;
+}
+
+h2 {
+  font-size: 32px;
+}
+
+.new_user .field1 input,
+.new_user .field input,
+.new_user .field label,
+.new_user .field1 label,
+.new_user .actions input[type="submit"] {
+  padding: 10px 10px; /* 上下のパディングを20pxに設定 */
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+.Show__container{
+  padding: 16px 32px;
+}

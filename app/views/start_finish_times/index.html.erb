@@ -1,0 +1,55 @@
+<%# CSS・・・assets/stylesheets/style_list.css %>
+
+<div class="Show__container">
+<h1>分析機器利用　実績表 <%= @selected_division.present? ? "【 #{h @selected_division} 】" : "" %></h1>
+
+<div class="select_area">
+  <%= form_tag(start_finish_times_path, method: 'get', class: 'no-print') do %>
+    <%= select_tag 'selected_division', options_for_select(@divisions, params[:selected_division]), include_blank: true %>
+    左のプルダウンから、表示したい部署名を選択して、下のボタンを教えてください。
+    <%= submit_tag '表示する', class: "rounded-button" %>
+  <% end %>
+</div>
+
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>No.</th>
+      <th>利用日</th>
+      <th>利用者</th>
+      <th>機器名</th>
+      <th>利用開始時間</th>
+      <th>利用終了時間</th>
+      <th>利用時間</th>
+      <th>機器単価</th>
+      <th>利用料金</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <% total_price = 0 %>
+    <% @start_finish_times.each_with_index do |n, index| %>
+      <tr>
+        <% if index + 1 < @start_finish_times.length %>
+          <td align="center" ><%= index + 1 %></td>
+          <td align="center" ><%= n.user.name_sei %></td>
+          <td align="center" ><%= n.equipment.equipment_name %></td>
+          <td align="center" ><%= l n.start_time, format: :long, locale: :ja %></td>
+          <td align="center" ><%= n.start_time.strftime("%H:%M") %></td> <!-- 利用開始時間を HH:MM 形式で表示 -->
+          <td align="center" ><%= n.finish_time.strftime("%H:%M") %></td> <!-- 利用開始時間を HH:MM 形式で表示 -->
+          <td align="center" ><%= n.used_hour %>時間</td>
+          <td align="center" ><%= n.equipment.price %>円</td>
+          <td align="right" ><%= n.usage_fee %>円</td>
+
+          <% total_price += n.usage_fee %>
+
+        <% end %>
+      </tr>
+    <% end %>
+
+    <td colspan="8" align="right" >総計　</td
+    ><td><%= total_price %>円</td>
+    
+  </tbody>
+</table>

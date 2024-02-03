@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <title>EquipmentCost</title>
+  <link rel="icon" href="images/favicon.ico">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_importmap_tags %>
+</head>
+
+    <div class="body__container">
+
+      <header>
+        <h2>  <%= link_to "分析機器管理アプリ", root_path, class: "back-to-top" %></h2>
+            <%#= link_to "機器登録する", new_equipment_path, class: "post" %>
+      </header>
+
+      <%= yield %>
+
+      <footer>
+        <p>
+         <h6> Copyright Equipment_Cost 2023 </h6>
+        </p>
+      </footer>
+    </div>
+
+</html>

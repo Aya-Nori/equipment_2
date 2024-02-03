@@ -1,0 +1,41 @@
+
+/* カテゴリータイトルのスタイル */
+.category-title {
+  font-size: 1.5em;
+  margin-bottom: 5px;
+  margin-top: 30px;
+}
+
+/* カテゴリーごとのリストスタイル */
+.category-list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+/* 各アイテムのスタイル */
+.list {
+  margin: 0 1.5%; /* アイテム間のマージン */
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 15px; 
+  background-color: white;
+  margin-bottom: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.list:hover {
+  background-color: red;
+}
+
+/* 各アイテム内のスタイル */
+.item-info {
+  margin: 5px 10px 10px;
+  font-size: 16px;
+}
+
+/* リンクのスタイル */
+.item-link {
+  text-decoration: none; /* アンダーラインをなくす */
+  color: black; /* テキスト色を黒に設定 */
+}
