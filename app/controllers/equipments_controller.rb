@@ -27,9 +27,9 @@ class EquipmentsController < ApplicationController
     start_finish_time = @equipment.start_finish_times.build(
       start_time: Time.current,
       condition: 1,
-      user: current_user
+      user: current_user,
     )
-    
+
     if start_finish_time.save
       flash[:success] = '分析を開始しました。'
     else

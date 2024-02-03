@@ -29,24 +29,22 @@
   
   <tbody>
     <% total_price = 0 %>
-    <% @start_finish_times.each_with_index do |n, index| %>
-      <tr>
-        <% if index + 1 < @start_finish_times.length %>
-          <td align="center" ><%= index + 1 %></td>
-          <td align="center" ><%= n.user.name_sei %></td>
-          <td align="center" ><%= n.equipment.equipment_name %></td>
-          <td align="center" ><%= l n.start_time, format: :long, locale: :ja %></td>
-          <td align="center" ><%= n.start_time.strftime("%H:%M") %></td> <!-- 利用開始時間を HH:MM 形式で表示 -->
-          <td align="center" ><%= n.finish_time.strftime("%H:%M") %></td> <!-- 利用開始時間を HH:MM 形式で表示 -->
-          <td align="center" ><%= n.used_hour %>時間</td>
-          <td align="center" ><%= n.equipment.price %>円</td>
-          <td align="right" ><%= n.usage_fee %>円</td>
+<% @start_finish_times.each_with_index do |n, index| %>
+  <tr>
+    <td align="center" ><%= index + 1 %></td>
+    <td align="center" ><%= n.user.name_sei %></td>
+    <td align="center" ><%= n.equipment.equipment_name %></td>
+    <td align="center" ><%= l n.start_time, format: :long, locale: :ja %></td>
+    <td align="center" ><%= n.start_time.strftime("%H:%M") %></td> <!-- 利用開始時間を HH:MM 形式で表示 -->
+    <td align="center" ><%= n.finish_time.strftime("%H:%M") %></td> <!-- 利用開始時間を HH:MM 形式で表示 -->
+    <td align="center" ><%= n.used_hour %>時間</td>
+    <td align="center" ><%= n.equipment.price %>円</td>
+    <td align="right" ><%= n.usage_fee %>円</td>
 
-          <% total_price += n.usage_fee %>
+    <% total_price += n.usage_fee %>
+  </tr>
+<% end %>
 
-        <% end %>
-      </tr>
-    <% end %>
 
     <td colspan="8" align="right" >総計　</td
     ><td><%= total_price %>円</td>
