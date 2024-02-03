@@ -64,7 +64,7 @@ development:
   username: root
   password:
   host: localhost
-  database: equipment_cost_development
+  database: equipment_cost2_development
 
 test:
   <<: *default
@@ -72,7 +72,7 @@ test:
   username: root
   password:
   host: localhost
-  database: equipment_cost_test
+  database: equipment_cost2_test
 
 production:
   <<: *default
