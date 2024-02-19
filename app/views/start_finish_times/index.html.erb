@@ -54,9 +54,9 @@
 
 
 
-<p></p>
-<p></p>
-<p></p>
+      <br>
+      <br>
+      <br>
 
 
 <table border="1">
@@ -92,4 +92,111 @@
   </tbody>
 </table>
 
+      <br>
+      <br>
+      <br>
+
+
+<div style="background-color: white;">
+  <div class="chart-container">
+    <canvas id="quarterlyChart"></canvas>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+<script>
+  // テーブルからデータを抽出
+  var table = document.getElementsByTagName('table')[1];
+  var data = [];
+  var labels = ['第1四半期（1-3月）', '第2四半期（4-6月）', '第3四半期（7-9月）', '第4四半期（10-12月）'];
+
+  for (var i = 1; i < table.rows.length; i++) {
+    var row = table.rows[i];
+    var rowData = [];
+
+    for (var j = 1; j < row.cells.length; j++) {
+      rowData.push(parseInt(row.cells[j].innerHTML)); // セルの値を数値に変換して追加
+    }
+
+    data.push(rowData);
+  }
+
+// グラフを描画
+var ctx = document.getElementById('quarterlyChart').getContext('2d');
+var myChart = new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: labels,
+    datasets: [{
+      label: '2022年度',
+      data: data[0], // 第一四半期のデータを指定
+      borderColor: 'rgb(75, 192, 192)',
+      backgroundColor: 'rgba(75, 192, 192, 0.2)', // グラフの塗りつぶし色を設定
+      pointBackgroundColor: 'rgb(75, 192, 192)', // マーカーの塗りつぶし色を設定
+      pointStyle: 'circle', // マーカースタイルを円形に設定
+      radius: 6, // マーカーのサイズを大きくする
+      borderWidth: 3, // マーカー間の線の太さを設定
+      tension: 0.1
+    }, {
+      label: '2023年度',
+      data: data[1], // 第二四半期のデータを指定
+      borderColor: 'rgb(255, 159, 64)',
+      backgroundColor: 'rgba(255, 159, 64, 0.2)', // グラフの塗りつぶし色を設定
+      pointBackgroundColor: 'rgb(255, 159, 64)', // マーカーの塗りつぶし色を設定
+      pointStyle: 'circle', // マーカースタイルを円形に設定
+      radius: 6, // マーカーのサイズを大きくする
+      borderWidth: 3, // マーカー間の線の太さを設定
+      tension: 0.1
+    }, {
+      label: '2024年度',
+      data: data[2], // 第三四半期のデータを指定
+      borderColor: 'rgb(54, 162, 235)',
+      backgroundColor: 'rgba(54, 162, 235, 0.2)', // グラフの塗りつぶし色を設定
+      pointBackgroundColor: 'rgb(54, 162, 235)', // マーカーの塗りつぶし色を設定
+      pointStyle: 'circle', // マーカースタイルを円形に設定
+      radius: 6, // マーカーのサイズを大きくする
+      borderWidth: 3, // マーカー間の線の太さを設定
+      tension: 0.1
+    }]
+  },
+  options: {
+    plugins: {
+      title: {
+        display: true,
+        text: '分析機器利用　実績結果グラフ <%= @selected_division.present? ? "【 #{h @selected_division} 】" : "" %>',
+        position: 'top',
+        font: {
+          size: 18,
+          weight: 'bold',
+          color: 'black' // テキストの色を黒色に設定
+        }
+      }
+    },
+      scales: {
+        x: {
+          grid: {
+            color: 'black' // x軸のグリッド線の色を黒色に設定
+          },
+          ticks: {
+            color: 'black' // x軸のラベルの色を黒色に設定
+          }
+        },
+        y: {
+          grid: {
+            color: 'black' // y軸のグリッド線の色を黒色に設定
+          },
+          ticks: {
+            color: 'black' // y軸のラベルの色を黒色に設定
+          }
+        }
+      }
+    }
+  });
+
+
+
+  // グラフ全体のスタイルを変更
+  Chart.defaults.color = 'black'; // データセットの色
+  Chart.defaults.font.color = 'black'; // 文字色
+</script>
 
